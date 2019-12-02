@@ -42,6 +42,12 @@ file.close()
 
 program = [int(i) for i in program]
 program_copy = program.copy()
-program_copy[1] = 12
-program_copy[2] = 2
+program_copy[1:3] = 12, 2
 print("Part 1:", runProgram(program_copy))
+
+for noun in range(0, 99):
+    for verb in range(0, 99):
+        program_copy = program.copy()
+        program_copy[1:3] = noun, verb
+        if runProgram(program_copy) == 19690720:
+            print("Part 2:", 100 * noun + verb)
