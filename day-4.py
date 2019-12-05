@@ -9,12 +9,13 @@ def checkCriteria(number):
         number //= 10
         if digit > nextDigit:
             return False
-        elif digit == nextDigit:
-            count += 1
-        elif digit < nextDigit:
-            if count == 1:
-                containsDouble = True
-            count = 0
+        if not containsDouble:
+            if digit == nextDigit:
+                count += 1
+            elif digit < nextDigit:
+                if count == 1:
+                    containsDouble = True
+                count = 0
     return containsDouble
 
 
